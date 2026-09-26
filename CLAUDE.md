@@ -16,7 +16,7 @@
 - **Instalar:** no hace falta.
 - **Dev:** abrir `index.html` en el navegador o servir la carpeta con cualquier servidor estático (por ejemplo `npx serve .`).
 - **Build:** no hay.
-- **Deploy:** Vercel como sitio estático. Configuración y URL: **Por confirmar** (aún no se publica).
+- **Deploy:** Vercel como sitio estático, conectado al repo `github.com/devburgos27/portafolio` (rama `main`). Preset "Other", sin comando de build y con la raíz del repo como directorio de salida; no hace falta `vercel.json`. Cada push a `main` publica. URL: **Por confirmar** (se anota cuando esté publicado).
 
 ## Estructura del proyecto
 
@@ -25,6 +25,7 @@ index.html   Todo el contenido: hero, sobre mí, habilidades, proyectos, experie
 style.css    Tema completo; variables en :root, bloques separados por comentarios "/* ---------- X ---------- */"
 script.js    Funciones IIFE: brasas en canvas, texto tipeado, nav lateral activa, botón volver arriba
 CLAUDE.md    Este archivo
+.gitignore   Ignora .vercel/, .env, archivos del SO/editor y node_modules/
 ```
 
 ## Convenciones
@@ -46,19 +47,19 @@ CLAUDE.md    Este archivo
 - Prioridad 2 (proyectos): nueva descripción de Ruta Viva, tarjetas de PokeTracker y Biblioteca, estrellas eliminadas (HTML y CSS) y etiqueta "En desarrollo" en los 3 proyectos en curso.
 
 **En progreso**
-- (nada)
+- Prioridad 3: el repo ya está listo para Vercel (con `.gitignore`). Falta que Benjamín haga push y cree el proyecto en Vercel.
 
 **Pendiente**: ver Próximos pasos.
 
 **Problemas conocidos**
-- PokeTracker y Sistema de Biblioteca: tecnologías y enlace **Por confirmar**. Por ahora no tienen `.tech-tags` y muestran el botón deshabilitado "Enlace próximamente".
-- La descripción de Arte Xebi ("emprendimiento artístico local, con galería interactiva") no menciona que el sitio es de un artista multifuncional orientado principalmente al tatuaje. Revisar si se ajusta.
+- PokeTracker: enlace **Por confirmar** (muestra el botón deshabilitado "Enlace próximamente").
+- Sistema de Biblioteca: tecnologías y enlace **Por confirmar** (sin `.tech-tags` y con el botón deshabilitado).
 
 ## Próximos pasos (en orden de prioridad)
 
 1. ~~Corregir inconsistencias~~ (hecho el 2026-09-26).
 2. ~~Agregar PokeTracker y Biblioteca, quitar estrellas, etiquetas "En desarrollo"~~ (hecho el 2026-09-26; faltan tecnologías y enlaces, ver Problemas conocidos).
-3. Publicar en Vercel con la URL gratuita.
+3. Publicar en Vercel con la URL gratuita. *(En progreso: faltan los pasos manuales en GitHub y Vercel.)*
 4. Contacto claro (correo, LinkedIn, GitHub) y CV descargable en PDF.
 5. Capturas de cada proyecto.
 6. Favicon y etiquetas Open Graph.
@@ -76,10 +77,13 @@ CLAUDE.md    Este archivo
 - **2026-09-26:** la ubicación oficial es Temuco. Motivo: lo confirmó el dueño del portafolio.
 - **2026-09-26:** las etiquetas de Arte Xebi quedan en HTML5, CSS3 y JavaScript. Motivo: el sitio publicado es estático y no usa WordPress.
 - **2026-09-26:** el estado de cada proyecto se muestra solo en `.status-panel` ("En línea" / "En desarrollo"), sin el "(en desarrollo)" que había en el título. Motivo: evitar mostrar la misma etiqueta dos veces.
+- **2026-09-26:** las etiquetas de PokeTracker son HTML5, CSS3, JavaScript, Supabase y Pokémon TCG API. Motivo: resumir su stack (JS vanilla con módulos ES; Supabase con PostgreSQL, Auth por enlace mágico y RLS; datos de pokemontcg.io, con TCGdex como respaldo).
+- **2026-09-26:** deploy en Vercel sin `vercel.json` ni build. Motivo: es un sitio estático y Vercel lo sirve tal cual.
 - **2026-09-26:** los proyectos sin enlace muestran un botón deshabilitado (`.btn-disabled`) en lugar de quitarlo. Motivo: mantener todas las tarjetas con la misma estructura.
 
 ## Registro de cambios
 
+- **2026-09-26:** se preparan el `.gitignore` y la documentación para el deploy en Vercel; se ajusta la descripción de Arte Xebi y se agregan las tecnologías de PokeTracker.
 - **2026-09-26:** se agregan PokeTracker y Sistema de Biblioteca, se cambia la descripción de Ruta Viva, se quitan las estrellas y se agregan las etiquetas "En desarrollo".
 - **2026-09-26:** se corrigen inconsistencias: ubicación en Temuco, enlace de Ruta Viva, etiquetas de Arte Xebi y variable sin usar en script.js.
 - **2026-09-26:** se crea CLAUDE.md con la documentación inicial del proyecto.

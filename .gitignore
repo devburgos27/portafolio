@@ -1,0 +1,17 @@
+# Vercel
+.vercel/
+
+# Variables de entorno
+.env
+.env.*
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+
+# Node (por si se usa algún servidor local)
+node_modules/
