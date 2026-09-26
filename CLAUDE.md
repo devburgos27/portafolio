@@ -94,6 +94,8 @@ CLAUDE.md    Este archivo
 
 ## Registro de cambios
 
+- **2026-09-26:** nueva `og-image.png` a sangre completa (sin tarjeta): nombre, subtítulo en dos líneas a 48px y "Temuco, Chile", para que se lea en la vista previa de LinkedIn en celular.
+
 - **2026-09-26:** se fusiona la rama `rediseno` en `main` (dirección B "editorial oscuro") junto con Open Graph absoluto, `og:url`, `canonical` y el pie limpio; se borra la rama.
 - **2026-09-26:** sitio publicado en https://portafolio-alpha-one-11.vercel.app/; Open Graph con URL absoluta, `og:url` y `canonical`; se quita "Console UI adaptation" del pie.
 - **2026-09-26 (rama `rediseno`):** dirección B "editorial oscuro": cabecera fija con navegación, hero alineado a la izquierda con la rosa, datos clave en "Sobre mí", Arte Xebi destacado con captura, habilidades agrupadas, trayectoria en dos columnas y contacto con el correo grande. Se quitan canvas, texto tipeado, riel y botón volver arriba.
