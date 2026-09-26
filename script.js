@@ -69,13 +69,9 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
 /* ---------- 2. Texto tipeado del rol ---------- */
 (function typedRole() {
   const el = document.getElementById('typedRole');
-  if (!el) return;
-  const text = 'Técnico en Informática · Desarrollador Web';
-
-  if (prefersReducedMotion) {
-    el.textContent = text;
-    return;
-  }
+  if (!el || prefersReducedMotion) return;
+  // El texto vive en el HTML (buscadores y sin JS lo ven); aquí solo se anima
+  const text = el.textContent.trim();
 
   let i = 0;
   function type() {
@@ -118,7 +114,7 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
 
   window.addEventListener('scroll', () => {
     btn.classList.toggle('visible', window.scrollY > 500);
-  });
+  }, { passive: true });
 
   btn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });

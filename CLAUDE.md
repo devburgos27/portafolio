@@ -12,7 +12,7 @@
 ## Stack y comandos
 
 - HTML + CSS + JavaScript puro (vanilla), sin frameworks, sin dependencias y sin paso de build. Se mantiene así por ahora.
-- Fuentes de Google Fonts: Cinzel, Cinzel Decorative e Inter.
+- Fuentes de Google Fonts: Cinzel e Inter.
 - **Instalar:** no hace falta.
 - **Dev:** abrir `index.html` en el navegador o servir la carpeta con cualquier servidor estático (por ejemplo `npx serve .`).
 - **Build:** no hay.
@@ -24,6 +24,8 @@
 index.html   Todo el contenido: hero, sobre mí, habilidades, proyectos, experiencia, educación, contacto
 style.css    Tema completo; variables en :root, bloques separados por comentarios "/* ---------- X ---------- */"
 script.js    Funciones IIFE: brasas en canvas, texto tipeado, nav lateral activa, botón volver arriba
+assets/      CV en PDF, favicon.svg, apple-touch-icon.png y og-image.png (1200×630)
+favicon.ico  Favicon en la raíz (evita el 404 de /favicon.ico)
 CLAUDE.md    Este archivo
 .gitignore   Ignora .vercel/, .env, archivos del SO/editor y node_modules/
 ```
@@ -34,8 +36,9 @@ CLAUDE.md    Este archivo
 - **Identidad visual (mantener):** "Console UI" neumórfico (referencias de Pinterest) + gótico oscuro con rosa (inspirado en Ado). Paleta oscura con acentos azules, definida con variables en `:root`. No introducir colores sueltos: usar o agregar variables.
 - **CSS:** clases en kebab-case (`project-card`, `tech-tag`, `status-panel`); los modificadores de estado van como clases (`status-live`, `status-dev`, `active`, `visible`).
 - **JS:** cada funcionalidad en una IIFE con nombre y encabezado numerado. Respetar `prefersReducedMotion` en toda animación nueva.
-- **Tarjetas de proyecto:** `article.project-card` con h3, descripción, `.tech-tags`, botón `.btn` y un estado en `.status-panel` (`status-live` "En línea" / `status-dev` "En desarrollo"). Si todavía no hay enlace, usar `<span class="btn btn-disabled">Enlace próximamente</span>`. Todo enlace externo lleva `target="_blank" rel="noopener"`. Los proyectos en desarrollo muestran la etiqueta "En desarrollo".
-- **Accesibilidad:** elementos decorativos con `aria-hidden="true"`; foco visible y soporte de movimiento reducido ya implementados.
+- **Tarjetas de proyecto:** `article.project-card` con h3, descripción, `.tech-tags`, botón `.btn` y un `.control-details` que solo contiene el estado en `.status-panel` (`status-live` "En línea" / `status-dev` "En desarrollo"). Si todavía no hay enlace, usar `<span class="btn btn-disabled">Enlace próximamente</span>`. Todo enlace externo lleva `target="_blank" rel="noopener"`. Los proyectos en desarrollo muestran la etiqueta "En desarrollo".
+- **Accesibilidad:** elementos decorativos con `aria-hidden="true"` (incluidos los `❦` de los h2 y los íconos de contacto); foco visible, enlace "Saltar al contenido", `<main id="contenido">`, clase `.visually-hidden` y soporte de movimiento reducido. Los enlaces del riel llevan su texto en `.rail-label`.
+- **Textos:** sin inventar logros ni cifras; lo que falte se marca con un comentario `<!-- ...: Por confirmar -->` en el HTML, no en el texto visible.
 
 ## Estado actual
 
@@ -45,6 +48,9 @@ CLAUDE.md    Este archivo
 - Tarjetas de Arte Xebi, Ruta Viva, PokeTracker y Sistema de Biblioteca; experiencia (Cpexity y Museo y Memoria Neltume); educación; contacto (correo, teléfono, LinkedIn, GitHub).
 - Prioridad 1 (inconsistencias): ubicación unificada en Temuco, enlace de Ruta Viva corregido, etiqueta WordPress quitada de Arte Xebi y variable sin usar borrada de `script.js`.
 - Prioridad 2 (proyectos): nueva descripción de Ruta Viva, tarjetas de PokeTracker y Biblioteca, estrellas eliminadas (HTML y CSS) y etiqueta "En desarrollo" en los 3 proyectos en curso.
+- Prioridad 4: hero con "Descargar CV" y "Contactar" y línea de disponibilidad; CV en `assets/`; "Sobre mí", proyectos y experiencia reescritos con datos reales.
+- Prioridad 6: favicon (SVG, ICO y apple-touch-icon), Open Graph y `theme-color` (falta la URL absoluta, ver Problemas conocidos).
+- Accesibilidad rápida de la auditoría: `aria-hidden` en adornos, texto accesible y contraste 3.47:1 en el riel, `<main>`, enlace para saltar al contenido, rol del hero en el HTML, Cinzel Decorative y controles falsos `◀◀ ▶ ▮▮` eliminados, scroll `passive`.
 
 **En progreso**
 - Prioridad 3: el repo ya está listo para Vercel (con `.gitignore`). Commits subidos a GitHub (2026-09-26). Falta crear el proyecto en Vercel y anotar la URL.
@@ -53,16 +59,23 @@ CLAUDE.md    Este archivo
 
 **Problemas conocidos**
 - PokeTracker: enlace **Por confirmar** (muestra el botón deshabilitado "Enlace próximamente").
-- Sistema de Biblioteca: tecnologías y enlace **Por confirmar** (sin `.tech-tags` y con el botón deshabilitado).
+- Sistema de Biblioteca: tecnologías y enlace **Por confirmar**. El CV dice Angular y MongoDB; falta confirmar que es el mismo proyecto.
+- Cpexity: tecnologías y tareas concretas **Por confirmar** (hoy dice solo "Desarrollo de aplicaciones como parte del equipo").
+- El CV en PDF dice "Neltume, Chile"; el sitio dice Temuco. Hay que actualizar el PDF.
+- Open Graph usa rutas relativas (`assets/og-image.png`); al tener la URL de Vercel hay que cambiarlas a absolutas y agregar `og:url`.
+- Pendientes de la auditoría del 2026-09-26:
+  - Medio: bajo 900px no hay navegación (el riel se oculta).
+  - Medio: los proyectos no tienen capturas (prioridad 5).
+  - Bajo: el canvas crea 60 gradientes por cuadro sin pausa; textos de 11 a 12px (tech-tags, estados); la cuarta tarjeta queda sola en la fila en escritorio; "Console UI adaptation" en el pie no aporta.
 
 ## Próximos pasos (en orden de prioridad)
 
 1. ~~Corregir inconsistencias~~ (hecho el 2026-09-26).
 2. ~~Agregar PokeTracker y Biblioteca, quitar estrellas, etiquetas "En desarrollo"~~ (hecho el 2026-09-26; faltan tecnologías y enlaces, ver Problemas conocidos).
 3. Publicar en Vercel con la URL gratuita. *(En progreso: faltan los pasos manuales en GitHub y Vercel.)*
-4. Contacto claro (correo, LinkedIn, GitHub) y CV descargable en PDF.
+4. ~~Contacto claro y CV descargable en PDF~~ (hecho el 2026-09-26).
 5. Capturas de cada proyecto.
-6. Favicon y etiquetas Open Graph.
+6. ~~Favicon y etiquetas Open Graph~~ (hecho el 2026-09-26; falta pasar a URL absoluta).
 7. README en los repos de cada proyecto (*fuera de este repo, solo como recordatorio*).
 8. Conectar dominio propio (**Por confirmar** cuál).
 9. Versión en inglés.
@@ -79,10 +92,15 @@ CLAUDE.md    Este archivo
 - **2026-09-26:** el estado de cada proyecto se muestra solo en `.status-panel` ("En línea" / "En desarrollo"), sin el "(en desarrollo)" que había en el título. Motivo: evitar mostrar la misma etiqueta dos veces.
 - **2026-09-26:** las etiquetas de PokeTracker son HTML5, CSS3, JavaScript, Supabase y Pokémon TCG API. Motivo: resumir su stack (JS vanilla con módulos ES; Supabase con PostgreSQL, Auth por enlace mágico y RLS; datos de pokemontcg.io, con TCGdex como respaldo).
 - **2026-09-26:** deploy en Vercel sin `vercel.json` ni build. Motivo: es un sitio estático y Vercel lo sirve tal cual.
+- **2026-09-26:** quitar los controles `◀◀ ▶ ▮▮` de las tarjetas. Motivo: parecían botones y no hacían nada.
+- **2026-09-26:** el CV vive en `assets/CV-Benjamin-Burgos-Navarrete.pdf` y se enlaza con `download` desde el hero. Motivo: nombre estable y sin número de versión.
+- **2026-09-26:** el rediseño (dirección B, "editorial oscuro") se trabaja en la rama `rediseno` para compararlo con `main` antes de decidir.
 - **2026-09-26:** los proyectos sin enlace muestran un botón deshabilitado (`.btn-disabled`) en lugar de quitarlo. Motivo: mantener todas las tarjetas con la misma estructura.
 
 ## Registro de cambios
 
+- **2026-09-26:** puntos 1 a 4 de la auditoría en `main`: CTA y disponibilidad en el hero, CV descargable, textos reescritos con datos reales, favicon, Open Graph y correcciones de accesibilidad.
+- **2026-09-26:** auditoría completa (accesibilidad, responsivo, rendimiento, SEO, código y contenido); los hallazgos quedan en Problemas conocidos. No se cambió código.
 - **2026-09-26:** se preparan el `.gitignore` y la documentación para el deploy en Vercel; se ajusta la descripción de Arte Xebi y se agregan las tecnologías de PokeTracker.
 - **2026-09-26:** se agregan PokeTracker y Sistema de Biblioteca, se cambia la descripción de Ruta Viva, se quitan las estrellas y se agregan las etiquetas "En desarrollo".
 - **2026-09-26:** se corrigen inconsistencias: ubicación en Temuco, enlace de Ruta Viva, etiquetas de Arte Xebi y variable sin usar en script.js.

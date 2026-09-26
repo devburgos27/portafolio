@@ -3,38 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Benjamín Burgos Navarrete — Desarrollador Web</title>
-  <meta name="description" content="Portafolio de Benjamín Burgos Navarrete, Técnico en Informática y desarrollador web en Temuco, Chile.">
+  <title>Benjamín Burgos Navarrete · Desarrollador Web</title>
+  <meta name="description" content="Portafolio de Benjamín Burgos Navarrete, Técnico en Informática y desarrollador web en Temuco, Chile. Disponible para puestos frontend, full-stack o de desarrollo web.">
+  <meta name="theme-color" content="#05070a">
+
+  <!-- Open Graph: al publicar, cambiar las rutas relativas por la URL absoluta de Vercel (Por confirmar) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CL">
+  <meta property="og:title" content="Benjamín Burgos Navarrete · Desarrollador Web">
+  <meta property="og:description" content="Técnico en Informática y desarrollador web en Temuco, Chile. Disponible para puestos frontend, full-stack o de desarrollo web.">
+  <meta property="og:image" content="assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Benjamín Burgos Navarrete, Técnico en Informática y Desarrollador Web">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cinzel+Decorative:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
   <!-- Capa de ambientación: niebla, viñeta y brasas -->
-  <canvas id="embers"></canvas>
-  <div class="vignette"></div>
+  <canvas id="embers" aria-hidden="true"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
 
   <!-- Navegación lateral tipo "consola" -->
   <nav class="rail" aria-label="Navegación de secciones">
-    <a href="#sobre-mi" class="rail-dot" data-label="Sobre mí"></a>
-    <a href="#habilidades" class="rail-dot" data-label="Habilidades"></a>
-    <a href="#proyectos" class="rail-dot" data-label="Proyectos"></a>
-    <a href="#experiencia" class="rail-dot" data-label="Experiencia"></a>
-    <a href="#educacion" class="rail-dot" data-label="Educación"></a>
-    <a href="#contacto" class="rail-dot" data-label="Contacto"></a>
+    <a href="#sobre-mi" class="rail-dot"><span class="rail-label">Sobre mí</span></a>
+    <a href="#habilidades" class="rail-dot"><span class="rail-label">Habilidades</span></a>
+    <a href="#proyectos" class="rail-dot"><span class="rail-label">Proyectos</span></a>
+    <a href="#experiencia" class="rail-dot"><span class="rail-label">Experiencia</span></a>
+    <a href="#educacion" class="rail-dot"><span class="rail-label">Educación</span></a>
+    <a href="#contacto" class="rail-dot"><span class="rail-label">Contacto</span></a>
   </nav>
 
   <div class="console-wrapper">
 
     <header class="hero">
-      <p class="hero-eyebrow">Portafolio · v1.0</p>
       <h1 class="hero-name">
         <span class="flicker-line">Benjamín</span>
         <span class="flicker-line delay">Burgos Navarrete</span>
       </h1>
-      <p class="hero-role" id="typedRole"></p>
+      <p class="hero-role" id="typedRole">Técnico en Informática · Desarrollador Web</p>
+      <p class="hero-availability">Disponible de inmediato para puestos frontend, full-stack o de desarrollo web.</p>
+      <div class="hero-actions">
+        <a href="assets/CV-Benjamin-Burgos-Navarrete.pdf" class="btn btn-primary" download>Descargar CV</a>
+        <a href="#contacto" class="btn">Contactar</a>
+      </div>
       <div class="hero-sigil" aria-hidden="true">
         <svg viewBox="0 0 100 120" class="rose-svg" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
           <path class="rose-stem" d="M50 118 L50 62" />
@@ -51,15 +74,16 @@
       </div>
     </header>
 
-    <div class="container">
+    <main class="container" id="contenido" tabindex="-1">
 
       <section id="sobre-mi">
-        <h2><span class="fleuron">❦</span> Sobre mí</h2>
-        <p>Soy Técnico en Informática apasionado por el desarrollo web y la creación de experiencias digitales útiles. Me caracterizo por mi proactividad, aprendizaje rápido y capacidad para resolver problemas bajo presión. Actualmente vivo en Temuco, Chile, y trabajo de forma remota en proyectos independientes y colaborativos.</p>
+        <h2><span class="fleuron" aria-hidden="true">❦</span> Sobre mí</h2>
+        <p>Soy Técnico en Informática (CFT Teodoro Wickel, Temuco) y desarrollo aplicaciones web. Tengo experiencia en desarrollo de aplicaciones en Cpexity y estuve a cargo del sitio web del Centro Cultural Museo y Memoria Neltume. En mis proyectos propios he trabajado con Angular, Node.js, MongoDB y Supabase.</p>
+        <p>Busco un puesto como desarrollador frontend, full-stack o web. Tengo disponibilidad inmediata para trabajar en remoto, en híbrido o de forma presencial en Temuco o Santiago. Vivo en Temuco y hablo inglés a nivel intermedio-avanzado (B2).</p>
       </section>
 
       <section id="habilidades">
-        <h2><span class="fleuron">❦</span> Habilidades</h2>
+        <h2><span class="fleuron" aria-hidden="true">❦</span> Habilidades</h2>
         <div class="skills">
           <span class="skill">JavaScript</span>
           <span class="skill">TypeScript</span>
@@ -78,12 +102,12 @@
       </section>
 
       <section id="proyectos">
-        <h2><span class="fleuron">❦</span> Proyectos destacados</h2>
+        <h2><span class="fleuron" aria-hidden="true">❦</span> Proyectos destacados</h2>
         <div class="projects">
 
           <article class="project-card">
             <h3>Página Web Arte Xebi</h3>
-            <p>Página web para un artista multifuncional, principalmente orientado al tatuaje.</p>
+            <p>Ideé, desarrollé y desplegué la página completa de un artista multidisciplinario orientado principalmente al tatuaje.</p>
             <div class="tech-tags">
               <span class="tech-tag">HTML5</span>
               <span class="tech-tag">CSS3</span>
@@ -91,16 +115,13 @@
             </div>
             <a href="https://artexebi-web.vercel.app/" class="btn" target="_blank" rel="noopener">Ver proyecto</a>
             <div class="control-details">
-              <div class="playback-controls" aria-hidden="true">
-                <span>◀◀</span><span>▶</span><span>▮▮</span>
-              </div>
               <span class="status-panel status-live">En línea</span>
             </div>
           </article>
 
           <article class="project-card">
             <h3>App Ruta Viva</h3>
-            <p>Aplicación web que busca resolver el desconocimiento de horarios de buses rurales en Panguipulli.</p>
+            <p>Proyecto propio que ideé y estoy desarrollando. Busca resolver la duda constante sobre los horarios de los buses rurales en Panguipulli, tanto para turistas como para quienes viven en los alrededores.</p>
             <div class="tech-tags">
               <span class="tech-tag">Angular</span>
               <span class="tech-tag">Node.js</span>
@@ -109,16 +130,13 @@
             </div>
             <a href="https://github.com/devburgos27/ruta-viva" class="btn" target="_blank" rel="noopener">Ver repositorio</a>
             <div class="control-details">
-              <div class="playback-controls" aria-hidden="true">
-                <span>◀◀</span><span>▶</span><span>▮▮</span>
-              </div>
               <span class="status-panel status-dev">En desarrollo</span>
             </div>
           </article>
 
           <article class="project-card">
             <h3>PokeTracker</h3>
-            <p>Aplicación que muestra de forma visual qué cartas Pokémon tienes en tu colección y cuáles te faltan.</p>
+            <p>Herramienta visual que estoy desarrollando para ver qué cartas Pokémon faltan en tu colección y tener claro qué buscar.</p>
             <div class="tech-tags">
               <span class="tech-tag">HTML5</span>
               <span class="tech-tag">CSS3</span>
@@ -126,25 +144,19 @@
               <span class="tech-tag">Supabase</span>
               <span class="tech-tag">Pokémon TCG API</span>
             </div>
-            <!-- Enlace: por confirmar -->
+            <!-- Enlace: Por confirmar -->
             <span class="btn btn-disabled" aria-disabled="true">Enlace próximamente</span>
             <div class="control-details">
-              <div class="playback-controls" aria-hidden="true">
-                <span>◀◀</span><span>▶</span><span>▮▮</span>
-              </div>
               <span class="status-panel status-dev">En desarrollo</span>
             </div>
           </article>
 
           <article class="project-card">
             <h3>Sistema de Biblioteca</h3>
-            <p>Plataforma de préstamo, stock y control de libros, orientada al Museo y Memoria de Neltume.</p>
-            <!-- Tecnologías y enlace: por confirmar -->
+            <p>Proyecto sin fines de lucro para la comunidad de Neltume, en desarrollo. Ordenará y gestionará la biblioteca comunitaria del Museo y Memoria de Neltume: préstamos, stock y control de libros.</p>
+            <!-- Tecnologías y enlace: Por confirmar -->
             <span class="btn btn-disabled" aria-disabled="true">Enlace próximamente</span>
             <div class="control-details">
-              <div class="playback-controls" aria-hidden="true">
-                <span>◀◀</span><span>▶</span><span>▮▮</span>
-              </div>
               <span class="status-panel status-dev">En desarrollo</span>
             </div>
           </article>
@@ -153,73 +165,74 @@
       </section>
 
       <section id="experiencia">
-        <h2><span class="fleuron">❦</span> Experiencia</h2>
+        <h2><span class="fleuron" aria-hidden="true">❦</span> Experiencia</h2>
         <div class="panel-recessed timeline">
           <div class="timeline-item">
-            <span class="timeline-mark"></span>
+            <span class="timeline-mark" aria-hidden="true"></span>
             <div>
               <h3>Desarrollador de Aplicaciones (Proyecto)</h3>
               <p class="timeline-meta">Cpexity, Temuco · Sept 2026</p>
-              <p>Colaboración en tareas de programación y resolución técnica.</p>
+              <!-- Tecnologías y tareas concretas: Por confirmar -->
+              <p>Desarrollo de aplicaciones como parte del equipo.</p>
             </div>
           </div>
           <div class="timeline-item">
-            <span class="timeline-mark"></span>
+            <span class="timeline-mark" aria-hidden="true"></span>
             <div>
               <h3>Encargado de Página Web</h3>
-              <p class="timeline-meta">Centro Cultural Museo y Memoria Neltume · Nov 2025 – Jun 2026</p>
-              <p>Auditoría técnica, actualización de contenido y mantenimiento WordPress.</p>
+              <p class="timeline-meta">Centro Cultural Museo y Memoria Neltume · Nov 2025 a Jun 2026</p>
+              <p>Auditoría técnica del sitio, actualización de las secciones de Noticias, Eventos y Transparencia, y mantenimiento de WordPress y sus plugins.</p>
             </div>
           </div>
         </div>
       </section>
 
       <section id="educacion">
-        <h2><span class="fleuron">❦</span> Educación</h2>
+        <h2><span class="fleuron" aria-hidden="true">❦</span> Educación</h2>
         <div class="panel-recessed timeline">
           <div class="timeline-item">
-            <span class="timeline-mark"></span>
+            <span class="timeline-mark" aria-hidden="true"></span>
             <div>
               <h3>Técnico en Informática</h3>
-              <p class="timeline-meta">CFT Teodoro Wickel, Temuco · 2024–2025</p>
+              <p class="timeline-meta">CFT Teodoro Wickel, Temuco · 2024 a 2025</p>
             </div>
           </div>
           <div class="timeline-item">
-            <span class="timeline-mark"></span>
+            <span class="timeline-mark" aria-hidden="true"></span>
             <div>
               <h3>Pedagogía en Educación Musical (3 años)</h3>
-              <p class="timeline-meta">Universidad Andrés Bello, Santiago · 2020–2023</p>
+              <p class="timeline-meta">Universidad Andrés Bello, Santiago · 2020 a 2023</p>
             </div>
           </div>
         </div>
       </section>
 
       <section id="contacto">
-        <h2><span class="fleuron">❦</span> Contacto</h2>
+        <h2><span class="fleuron" aria-hidden="true">❦</span> Contacto</h2>
         <div class="panel-recessed contact-grid">
           <a class="contact-link" href="mailto:dev.burgos27@gmail.com">
-            <span class="contact-icon">✉</span>
+            <span class="contact-icon" aria-hidden="true">✉</span>
             <span>dev.burgos27@gmail.com</span>
           </a>
           <a class="contact-link" href="tel:+56994169061">
-            <span class="contact-icon">☎</span>
+            <span class="contact-icon" aria-hidden="true">☎</span>
             <span>+56 9 9416 9061</span>
           </a>
           <a class="contact-link" href="https://linkedin.com/in/benjamin-burgos-navarrete-44b958327" target="_blank" rel="noopener">
-            <span class="contact-icon">in</span>
-            <span>benjamin-burgos-navarrete</span>
+            <span class="contact-icon" aria-hidden="true">in</span>
+            <span><span class="visually-hidden">LinkedIn: </span>benjamin-burgos-navarrete</span>
           </a>
           <a class="contact-link" href="https://github.com/devburgos27" target="_blank" rel="noopener">
-            <span class="contact-icon">⌥</span>
-            <span>devburgos27</span>
+            <span class="contact-icon" aria-hidden="true">gh</span>
+            <span><span class="visually-hidden">GitHub: </span>devburgos27</span>
           </a>
         </div>
       </section>
 
-    </div>
+    </main>
 
     <footer>
-      <p>© 2026 Benjamín Burgos Navarrete <span class="fleuron small">❦</span> Console UI adaptation</p>
+      <p>© 2026 Benjamín Burgos Navarrete <span class="fleuron small" aria-hidden="true">❦</span> Console UI adaptation</p>
     </footer>
   </div>
 
