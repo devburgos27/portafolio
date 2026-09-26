@@ -279,7 +279,6 @@ h2 {
 }
 
 .fleuron { color: var(--azure-bright); font-size: 1.1em; }
-.fleuron.small { font-size: 0.9em; }
 
 p { margin-bottom: 1rem; line-height: 1.75; color: var(--bone); }
 

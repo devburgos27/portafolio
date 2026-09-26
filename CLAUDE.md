@@ -7,7 +7,7 @@
 - **Qué es:** portafolio web personal de una sola página.
 - **Para quién:** reclutadores.
 - **Objetivo:** conseguir el primer trabajo como desarrollador.
-- **Publicación:** Vercel (primero la URL gratuita; dominio propio **Por confirmar**).
+- **Publicación:** Vercel en https://portafolio-alpha-one-11.vercel.app/ (dominio propio **Por confirmar**).
 
 ## Stack y comandos
 
@@ -16,7 +16,7 @@
 - **Instalar:** no hace falta.
 - **Dev:** abrir `index.html` en el navegador o servir la carpeta con cualquier servidor estático (por ejemplo `npx serve .`).
 - **Build:** no hay.
-- **Deploy:** Vercel como sitio estático, conectado al repo `github.com/devburgos27/portafolio` (rama `main`). Preset "Other", sin comando de build y con la raíz del repo como directorio de salida; no hace falta `vercel.json`. Cada push a `main` publica. URL: **Por confirmar** (se anota cuando esté publicado).
+- **Deploy:** Vercel como sitio estático, conectado al repo `github.com/devburgos27/portafolio` (rama `main`). Preset "Other", sin comando de build y con la raíz del repo como directorio de salida; no hace falta `vercel.json`. Cada push a `main` publica; cada rama recibe su propia vista previa. URL: https://portafolio-alpha-one-11.vercel.app/
 
 ## Estructura del proyecto
 
@@ -49,11 +49,13 @@ CLAUDE.md    Este archivo
 - Prioridad 1 (inconsistencias): ubicación unificada en Temuco, enlace de Ruta Viva corregido, etiqueta WordPress quitada de Arte Xebi y variable sin usar borrada de `script.js`.
 - Prioridad 2 (proyectos): nueva descripción de Ruta Viva, tarjetas de PokeTracker y Biblioteca, estrellas eliminadas (HTML y CSS) y etiqueta "En desarrollo" en los 3 proyectos en curso.
 - Prioridad 4: hero con "Descargar CV" y "Contactar" y línea de disponibilidad; CV en `assets/`; "Sobre mí", proyectos y experiencia reescritos con datos reales.
-- Prioridad 6: favicon (SVG, ICO y apple-touch-icon), Open Graph y `theme-color` (falta la URL absoluta, ver Problemas conocidos).
+- Prioridad 6: favicon (SVG, ICO y apple-touch-icon), Open Graph con URL absoluta, `og:url`, `canonical` y `theme-color`.
 - Accesibilidad rápida de la auditoría: `aria-hidden` en adornos, texto accesible y contraste 3.47:1 en el riel, `<main>`, enlace para saltar al contenido, rol del hero en el HTML, Cinzel Decorative y controles falsos `◀◀ ▶ ▮▮` eliminados, scroll `passive`.
 
+- Prioridad 3: publicado en Vercel (2026-09-26).
+
 **En progreso**
-- Prioridad 3: el repo ya está listo para Vercel (con `.gitignore`). Commits subidos a GitHub (2026-09-26). Falta crear el proyecto en Vercel y anotar la URL.
+- Rediseño (dirección B) en la rama `rediseno`, pendiente de comparar con `main` antes de decidir.
 
 **Pendiente**: ver Próximos pasos.
 
@@ -62,20 +64,19 @@ CLAUDE.md    Este archivo
 - Sistema de Biblioteca: tecnologías y enlace **Por confirmar**. El CV dice Angular y MongoDB; falta confirmar que es el mismo proyecto.
 - Cpexity: tecnologías y tareas concretas **Por confirmar** (hoy dice solo "Desarrollo de aplicaciones como parte del equipo").
 - El CV en PDF dice "Neltume, Chile"; el sitio dice Temuco. Hay que actualizar el PDF.
-- Open Graph usa rutas relativas (`assets/og-image.png`); al tener la URL de Vercel hay que cambiarlas a absolutas y agregar `og:url`.
 - Pendientes de la auditoría del 2026-09-26:
   - Medio: bajo 900px no hay navegación (el riel se oculta).
   - Medio: los proyectos no tienen capturas (prioridad 5).
-  - Bajo: el canvas crea 60 gradientes por cuadro sin pausa; textos de 11 a 12px (tech-tags, estados); la cuarta tarjeta queda sola en la fila en escritorio; "Console UI adaptation" en el pie no aporta.
+  - Bajo: el canvas crea 60 gradientes por cuadro sin pausa; textos de 11 a 12px (tech-tags, estados); la cuarta tarjeta queda sola en la fila en escritorio.
 
 ## Próximos pasos (en orden de prioridad)
 
 1. ~~Corregir inconsistencias~~ (hecho el 2026-09-26).
 2. ~~Agregar PokeTracker y Biblioteca, quitar estrellas, etiquetas "En desarrollo"~~ (hecho el 2026-09-26; faltan tecnologías y enlaces, ver Problemas conocidos).
-3. Publicar en Vercel con la URL gratuita. *(En progreso: faltan los pasos manuales en GitHub y Vercel.)*
+3. ~~Publicar en Vercel con la URL gratuita~~ (hecho el 2026-09-26).
 4. ~~Contacto claro y CV descargable en PDF~~ (hecho el 2026-09-26).
 5. Capturas de cada proyecto.
-6. ~~Favicon y etiquetas Open Graph~~ (hecho el 2026-09-26; falta pasar a URL absoluta).
+6. ~~Favicon y etiquetas Open Graph~~ (hecho el 2026-09-26).
 7. README en los repos de cada proyecto (*fuera de este repo, solo como recordatorio*).
 8. Conectar dominio propio (**Por confirmar** cuál).
 9. Versión en inglés.
@@ -99,6 +100,7 @@ CLAUDE.md    Este archivo
 
 ## Registro de cambios
 
+- **2026-09-26:** sitio publicado en https://portafolio-alpha-one-11.vercel.app/; Open Graph con URL absoluta, `og:url` y `canonical`; se quita "Console UI adaptation" del pie.
 - **2026-09-26:** puntos 1 a 4 de la auditoría en `main`: CTA y disponibilidad en el hero, CV descargable, textos reescritos con datos reales, favicon, Open Graph y correcciones de accesibilidad.
 - **2026-09-26:** auditoría completa (accesibilidad, responsivo, rendimiento, SEO, código y contenido); los hallazgos quedan en Problemas conocidos. No se cambió código.
 - **2026-09-26:** se preparan el `.gitignore` y la documentación para el deploy en Vercel; se ajusta la descripción de Arte Xebi y se agregan las tecnologías de PokeTracker.
