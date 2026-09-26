@@ -47,7 +47,7 @@ CLAUDE.md    Este archivo
 - Prioridad 2 (proyectos): nueva descripción de Ruta Viva, tarjetas de PokeTracker y Biblioteca, estrellas eliminadas (HTML y CSS) y etiqueta "En desarrollo" en los 3 proyectos en curso.
 
 **En progreso**
-- Prioridad 3: el repo ya está listo para Vercel (con `.gitignore`). Falta que Benjamín haga push y cree el proyecto en Vercel.
+- Prioridad 3: el repo ya está listo para Vercel (con `.gitignore`). Commits subidos a GitHub (2026-09-26). Falta crear el proyecto en Vercel y anotar la URL.
 
 **Pendiente**: ver Próximos pasos.
 
