@@ -91,7 +91,6 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
 /* ---------- 3. Navegación lateral activa por sección ---------- */
 (function railNav() {
   const dots = document.querySelectorAll('.rail-dot');
-  const sections = document.querySelectorAll('main, section[id], header.hero, #sobre-mi, #habilidades, #proyectos, #experiencia, #educacion, #contacto');
   if (!dots.length) return;
 
   const targets = Array.from(dots).map(dot => document.querySelector(dot.getAttribute('href')));
