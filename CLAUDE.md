@@ -33,7 +33,7 @@ CLAUDE.md    Este archivo
 - **Identidad visual (mantener):** "Console UI" neumórfico (referencias de Pinterest) + gótico oscuro con rosa (inspirado en Ado). Paleta oscura con acentos azules, definida con variables en `:root`. No introducir colores sueltos: usar o agregar variables.
 - **CSS:** clases en kebab-case (`project-card`, `tech-tag`, `status-panel`); los modificadores de estado van como clases (`status-live`, `status-dev`, `active`, `visible`).
 - **JS:** cada funcionalidad en una IIFE con nombre y encabezado numerado. Respetar `prefersReducedMotion` en toda animación nueva.
-- **Tarjetas de proyecto:** `article.project-card` con h3, descripción, `.tech-tags`, botón `.btn` y un estado (`status-live` / `status-dev`). Todo enlace externo lleva `target="_blank" rel="noopener"`. Los proyectos en desarrollo muestran la etiqueta "En desarrollo".
+- **Tarjetas de proyecto:** `article.project-card` con h3, descripción, `.tech-tags`, botón `.btn` y un estado en `.status-panel` (`status-live` "En línea" / `status-dev` "En desarrollo"). Si todavía no hay enlace, usar `<span class="btn btn-disabled">Enlace próximamente</span>`. Todo enlace externo lleva `target="_blank" rel="noopener"`. Los proyectos en desarrollo muestran la etiqueta "En desarrollo".
 - **Accesibilidad:** elementos decorativos con `aria-hidden="true"`; foco visible y soporte de movimiento reducido ya implementados.
 
 ## Estado actual
@@ -41,8 +41,9 @@ CLAUDE.md    Este archivo
 **Hecho**
 - Estructura de una página con 7 secciones y navegación lateral.
 - Tema visual completo, responsive (cortes en 900px y 600px), soporte de movimiento reducido.
-- Tarjetas de Arte Xebi y Ruta Viva; experiencia (Cpexity y Museo y Memoria Neltume); educación; contacto (correo, teléfono, LinkedIn, GitHub).
+- Tarjetas de Arte Xebi, Ruta Viva, PokeTracker y Sistema de Biblioteca; experiencia (Cpexity y Museo y Memoria Neltume); educación; contacto (correo, teléfono, LinkedIn, GitHub).
 - Prioridad 1 (inconsistencias): ubicación unificada en Temuco, enlace de Ruta Viva corregido, etiqueta WordPress quitada de Arte Xebi y variable sin usar borrada de `script.js`.
+- Prioridad 2 (proyectos): nueva descripción de Ruta Viva, tarjetas de PokeTracker y Biblioteca, estrellas eliminadas (HTML y CSS) y etiqueta "En desarrollo" en los 3 proyectos en curso.
 
 **En progreso**
 - (nada)
@@ -50,12 +51,13 @@ CLAUDE.md    Este archivo
 **Pendiente**: ver Próximos pasos.
 
 **Problemas conocidos**
-- Las estrellas (`.rating-panel`) eran solo decorativas: quitarlas (prioridad 2).
+- PokeTracker y Sistema de Biblioteca: tecnologías y enlace **Por confirmar**. Por ahora no tienen `.tech-tags` y muestran el botón deshabilitado "Enlace próximamente".
+- La descripción de Arte Xebi ("emprendimiento artístico local, con galería interactiva") no menciona que el sitio es de un artista multifuncional orientado principalmente al tatuaje. Revisar si se ajusta.
 
 ## Próximos pasos (en orden de prioridad)
 
 1. ~~Corregir inconsistencias~~ (hecho el 2026-09-26).
-2. Agregar PokeTracker (colección de cartas Pokémon: cuáles tienes y cuáles faltan; enlace **Por confirmar**) y Sistema de biblioteca (préstamo, stock y control de libros para el Museo y Memoria de Neltume; enlace **Por confirmar**). Quitar las estrellas. Etiqueta "En desarrollo" en Ruta Viva, PokeTracker y Biblioteca.
+2. ~~Agregar PokeTracker y Biblioteca, quitar estrellas, etiquetas "En desarrollo"~~ (hecho el 2026-09-26; faltan tecnologías y enlaces, ver Problemas conocidos).
 3. Publicar en Vercel con la URL gratuita.
 4. Contacto claro (correo, LinkedIn, GitHub) y CV descargable en PDF.
 5. Capturas de cada proyecto.
@@ -73,9 +75,12 @@ CLAUDE.md    Este archivo
 - **2026-09-26:** contenido solo en español por ahora. Motivo: la versión en inglés queda como prioridad 9.
 - **2026-09-26:** la ubicación oficial es Temuco. Motivo: lo confirmó el dueño del portafolio.
 - **2026-09-26:** las etiquetas de Arte Xebi quedan en HTML5, CSS3 y JavaScript. Motivo: el sitio publicado es estático y no usa WordPress.
+- **2026-09-26:** el estado de cada proyecto se muestra solo en `.status-panel` ("En línea" / "En desarrollo"), sin el "(en desarrollo)" que había en el título. Motivo: evitar mostrar la misma etiqueta dos veces.
+- **2026-09-26:** los proyectos sin enlace muestran un botón deshabilitado (`.btn-disabled`) en lugar de quitarlo. Motivo: mantener todas las tarjetas con la misma estructura.
 
 ## Registro de cambios
 
+- **2026-09-26:** se agregan PokeTracker y Sistema de Biblioteca, se cambia la descripción de Ruta Viva, se quitan las estrellas y se agregan las etiquetas "En desarrollo".
 - **2026-09-26:** se corrigen inconsistencias: ubicación en Temuco, enlace de Ruta Viva, etiquetas de Arte Xebi y variable sin usar en script.js.
 - **2026-09-26:** se crea CLAUDE.md con la documentación inicial del proyecto.
 - **2026-09-15 (commit `77ddeeb`):** primer commit del portafolio (index.html, style.css, script.js).
