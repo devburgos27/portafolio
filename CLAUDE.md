@@ -1,6 +1,8 @@
 # CLAUDE.md — Portafolio de Benjamín Burgos Navarrete
 
-> **REGLA PERMANENTE:** Al terminar cualquier tarea que cambie el proyecto, actualiza este archivo: mueve ítems entre Hecho/En progreso/Pendiente, agrega la decisión si hubo una, y añade una línea al Registro de cambios. Mantén el archivo conciso; si una sección crece mucho, resúmela.
+> **REGLA PERMANENTE:** Al terminar cualquier tarea que cambie el proyecto, actualiza este archivo: mueve ítems entre Hecho/En progreso/Pendiente, agrega la decisión si hubo una, y añade una línea al Registro de cambios. Mantén el archivo conciso; si una sección crece mucho, resúmela. El commit lo hace el dueño, no Claude.
+>
+> **Nunca hagas commit ni push.** Cuando termines un cambio, dime qué archivos cambiaste y sugiéreme un mensaje de commit.
 
 ## Resumen del proyecto
 
@@ -33,6 +35,7 @@ CLAUDE.md    Este archivo
 ## Convenciones
 
 - **Idioma:** contenido, comentarios y commits en español. Versión en inglés a futuro.
+- **Commits:** sin atribución de ningún tipo (ni `Co-Authored-By` ni "Generated with…"). El único autor es devburgos27.
 - **Identidad visual:** editorial oscuro. Fondo oscuro con retícula de puntos y la rosa azul (inspirada en Ado) como marca; un solo acento (`--accent`, el azul de la rosa). Sin caja de consola, relieves neumórficos, brasas ni brillos. No introducir colores sueltos: usar o agregar tokens en `:root`.
 - **Forma:** controles y bloques con `--radius` (10px), etiquetas con `--radius-sm` (6px). Controles de al menos 44px de alto; bordes de controles con `--line-strong` (3.47:1).
 - **CSS:** clases en kebab-case (`project-row`, `tech-tags`, `skill-group`); los modificadores de estado van como clases (`status-live`, `status-dev`, `active`, `link-disabled`). Cortes responsivos en 900px, 700px y 520px.
@@ -77,6 +80,8 @@ CLAUDE.md    Este archivo
 
 ## Decisiones tomadas
 
+- **2026-09-26:** Claude nunca hace commit ni push; el dueño los hace a mano (bloqueados también con `permissions.deny` en `~/.claude/settings.json`). Motivo: control total del historial.
+- **2026-09-26:** commits sin atribución; hay que reescribir el historial de `main` para quitar `Co-Authored-By` (pendiente, lo hace el dueño). Motivo: el dueño no quiere colaboradores extra en GitHub.
 - **2026-09-26:** mantener HTML/CSS/JS puro, sin framework ni build. Motivo: sitio simple, fácil de publicar en Vercel.
 - **2026-09-26:** hosting en Vercel; primero la URL gratuita y después el dominio propio. Motivo: publicar cuanto antes.
 - **2026-09-26:** ~~mantener la identidad visual Console UI + gótico/rosa~~ (reemplazada por el rediseño, ver más abajo).
@@ -94,6 +99,7 @@ CLAUDE.md    Este archivo
 
 ## Registro de cambios
 
+- **2026-09-26:** Claude no hace commit ni push (lo hace el dueño a mano); regla de commits sin atribución; rama local `respaldo-historial` creada antes de quitar las líneas `Co-Authored-By` del historial de `main`.
 - **2026-09-26:** nueva `og-image.png` a sangre completa (sin tarjeta): nombre, subtítulo en dos líneas a 48px y "Temuco, Chile", para que se lea en la vista previa de LinkedIn en celular.
 - **2026-09-26:** se fusiona la rama `rediseno` en `main` (dirección B "editorial oscuro") junto con Open Graph absoluto, `og:url`, `canonical` y el pie limpio; se borra la rama.
 - **2026-09-26:** sitio publicado en https://portafolio-alpha-one-11.vercel.app/; Open Graph con URL absoluta, `og:url` y `canonical`; se quita "Console UI adaptation" del pie.
