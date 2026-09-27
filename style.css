@@ -266,6 +266,8 @@ p { text-wrap: pretty; }
   overflow: hidden;
 }
 
+.project-featured + .project-featured { margin-top: 1.5rem; }
+
 .project-shot {
   width: 100%;
   aspect-ratio: 12 / 5;
@@ -298,6 +300,13 @@ p { text-wrap: pretty; }
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.5rem;
 }
 
 .status {

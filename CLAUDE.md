@@ -40,7 +40,7 @@ CLAUDE.md    Este archivo
 - **Forma:** controles y bloques con `--radius` (10px), etiquetas con `--radius-sm` (6px). Controles de al menos 44px de alto; bordes de controles con `--line-strong` (3.47:1).
 - **CSS:** clases en kebab-case (`project-row`, `tech-tags`, `skill-group`); los modificadores de estado van como clases (`status-live`, `status-dev`, `active`, `link-disabled`). Cortes responsivos en 900px, 700px y 520px.
 - **JS:** cada funcionalidad en una IIFE con nombre y encabezado numerado. Respetar `prefers-reduced-motion` en toda animación nueva.
-- **Proyectos:** el proyecto en línea va en `article.project-featured` con captura (`.project-shot`, WebP con `width`/`height` y `alt`). Los demás van como `article.project-row` dentro de `ul.project-list`: `.project-head` (h3 + `.status`), descripción y `.project-meta` (`ul.tech-tags` + enlace `.link`). Estados: `status-live` "En línea" / `status-dev` "En desarrollo". Sin enlace: `<span class="link link-disabled">Enlace próximamente</span>`. Todo enlace externo lleva `target="_blank" rel="noopener"`.
+- **Proyectos:** los proyectos en línea van en `article.project-featured` con captura (`.project-shot`, WebP de 1200×500 con `width`/`height` y `alt`); si tienen sitio y repo, los dos enlaces van en `.project-links` (`.btn` "Ver proyecto" + `.link` "Ver repositorio"). Los demás van como `article.project-row` dentro de `ul.project-list`: `.project-head` (h3 + `.status`), descripción y `.project-meta` (`ul.tech-tags` + enlace `.link`). Estados: `status-live` "En línea" / `status-dev` "En desarrollo". Sin enlace: `<span class="link link-disabled">Enlace próximamente</span>`. Todo enlace externo lleva `target="_blank" rel="noopener"`.
 - **Accesibilidad:** elementos decorativos con `aria-hidden="true"`; foco visible, enlace "Saltar al contenido", `<main id="contenido">`, cada sección con `aria-labelledby` y soporte de movimiento reducido. Bajo 520px el nombre de la marca se oculta visualmente pero sigue siendo el texto del enlace.
 - **Textos:** sin inventar logros ni cifras; lo que falte se marca con un comentario `<!-- ...: Por confirmar -->` en el HTML, no en el texto visible.
 
@@ -50,6 +50,7 @@ CLAUDE.md    Este archivo
 - Página única con cabecera fija y 6 secciones (hero, sobre mí, proyectos, habilidades, trayectoria, contacto), diseño editorial oscuro, responsive y con movimiento reducido.
 - Prioridades 1 y 2: inconsistencias corregidas (ubicación en Temuco, enlaces, etiquetas) y tarjetas de los 4 proyectos con estado "En línea" / "En desarrollo".
 - Prioridad 3: publicado en Vercel (2026-09-26).
+- PokeTracker v1 en línea y destacado con captura, sitio y repo (2026-09-26).
 - Prioridad 4: "Descargar CV" y "Contactar" en el hero; CV en `assets/`; textos reescritos con datos reales; datos clave (ubicación, disponibilidad, modalidad, inglés) en "Sobre mí".
 - Prioridad 6: favicon (SVG, ICO y apple-touch-icon), Open Graph con URL absoluta, `og:url`, `canonical` y `theme-color`.
 - Auditoría del 2026-09-26 resuelta: CTA en el hero, navegación en todos los anchos, contraste AA, textos de al menos 12.8px, sin canvas ni controles falsos, sin tarjeta huérfana, pie limpio.
@@ -60,11 +61,10 @@ CLAUDE.md    Este archivo
 **Pendiente**: ver Próximos pasos.
 
 **Problemas conocidos**
-- PokeTracker: enlace **Por confirmar** (muestra "Enlace próximamente").
 - Sistema de Biblioteca: tecnologías y enlace **Por confirmar**. El CV dice Angular y MongoDB; falta confirmar que es el mismo proyecto.
 - Cpexity: tecnologías y tareas concretas **Por confirmar** (hoy dice solo "Desarrollo de aplicaciones como parte del equipo").
 - El CV en PDF dice "Neltume, Chile"; el sitio dice Temuco. Hay que actualizar el PDF.
-- Solo Arte Xebi tiene captura; los proyectos en desarrollo no tienen una (prioridad 5).
+- Ruta Viva y Sistema de Biblioteca no tienen captura (prioridad 5).
 
 ## Próximos pasos (en orden de prioridad)
 
@@ -72,7 +72,7 @@ CLAUDE.md    Este archivo
 2. ~~Agregar PokeTracker y Biblioteca, quitar estrellas, etiquetas "En desarrollo"~~ (hecho el 2026-09-26; faltan tecnologías y enlaces, ver Problemas conocidos).
 3. ~~Publicar en Vercel con la URL gratuita~~ (hecho el 2026-09-26).
 4. ~~Contacto claro y CV descargable en PDF~~ (hecho el 2026-09-26).
-5. Capturas de cada proyecto (Arte Xebi hecha; faltan las de los proyectos en desarrollo).
+5. Capturas de cada proyecto (Arte Xebi y PokeTracker hechas; faltan Ruta Viva y Sistema de Biblioteca).
 6. ~~Favicon y etiquetas Open Graph~~ (hecho el 2026-09-26).
 7. README en los repos de cada proyecto (*fuera de este repo, solo como recordatorio*).
 8. Conectar dominio propio (**Por confirmar** cuál).
@@ -90,7 +90,8 @@ CLAUDE.md    Este archivo
 - **2026-09-26:** la ubicación oficial es Temuco. Motivo: lo confirmó el dueño del portafolio.
 - **2026-09-26:** las etiquetas de Arte Xebi quedan en HTML5, CSS3 y JavaScript. Motivo: el sitio publicado es estático y no usa WordPress.
 - **2026-09-26:** el estado de cada proyecto se muestra solo en `.status` ("En línea" / "En desarrollo"), no en el título. Motivo: evitar mostrar la misma etiqueta dos veces.
-- **2026-09-26:** las etiquetas de PokeTracker son HTML5, CSS3, JavaScript, Supabase y Pokémon TCG API. Motivo: resumir su stack (JS vanilla con módulos ES; Supabase con PostgreSQL, Auth por enlace mágico y RLS; datos de pokemontcg.io, con TCGdex como respaldo).
+- **2026-09-26:** PokeTracker v1 va destacado, antes de Arte Xebi. Motivo: está en línea y es el proyecto que muestra más stack (login con Google, PostgreSQL con RLS en Supabase, API GraphQL), que es lo que un reclutador busca en un primer puesto de desarrollador; las filas quedan para lo que está en desarrollo.
+- **2026-09-26:** las etiquetas de PokeTracker v1 son HTML5, CSS3, JavaScript, Supabase, PostgreSQL, GraphQL, Google OAuth y Vercel (reemplaza la lista anterior con Pokémon TCG API). Motivo: stack final que confirmó el dueño.
 - **2026-09-26:** deploy en Vercel sin `vercel.json` ni build. Motivo: es un sitio estático y Vercel lo sirve tal cual.
 - **2026-09-26:** quitar los controles `◀◀ ▶ ▮▮` de las tarjetas. Motivo: parecían botones y no hacían nada.
 - **2026-09-26:** el CV vive en `assets/CV-Benjamin-Burgos-Navarrete.pdf` y se enlaza con `download` desde el hero y desde Contacto. Motivo: nombre estable y sin número de versión.
@@ -99,6 +100,7 @@ CLAUDE.md    Este archivo
 
 ## Registro de cambios
 
+- **2026-09-26:** PokeTracker v1 pasa a "En línea" y a tarjeta destacada con captura (`assets/proyectos/poketracker.webp`), enlaces al sitio y al repo, tecnologías finales y descripción nueva; nueva clase `.project-links` y separación entre tarjetas destacadas.
 - **2026-09-26:** Claude no hace commit ni push (lo hace el dueño a mano); regla de commits sin atribución; rama local `respaldo-historial` creada antes de quitar las líneas `Co-Authored-By` del historial de `main`.
 - **2026-09-26:** nueva `og-image.png` a sangre completa (sin tarjeta): nombre, subtítulo en dos líneas a 48px y "Temuco, Chile", para que se lea en la vista previa de LinkedIn en celular.
 - **2026-09-26:** se fusiona la rama `rediseno` en `main` (dirección B "editorial oscuro") junto con Open Graph absoluto, `og:url`, `canonical` y el pie limpio; se borra la rama.
