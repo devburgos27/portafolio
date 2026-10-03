@@ -23,10 +23,10 @@
 ## Estructura del proyecto
 
 ```
-index.html   Todo el contenido: cabecera fija, hero, sobre mí, proyectos, habilidades, trayectoria (experiencia y educación), contacto
+index.html   Todo el contenido: cabecera fija, hero, sobre mí, proyectos, habilidades, trayectoria (experiencia y educación), Goblin Tech (servicios freelance), contacto y pie
 style.css    Tema completo; tokens semánticos en :root, bloques separados por comentarios "/* ---------- X ---------- */"
 script.js    Una IIFE: navegación activa por sección (clase active + aria-current)
-assets/      CV en PDF, favicon.svg, apple-touch-icon.png, og-image.png (1200×630) y proyectos/ (capturas en WebP)
+assets/      CV en PDF, favicon.svg, apple-touch-icon.png, og-image.png (1200×630), goblin-tech.webp (marca de Goblin Tech) y proyectos/ (capturas en WebP)
 favicon.ico  Favicon en la raíz (evita el 404 de /favicon.ico)
 CLAUDE.md    Este archivo
 .gitignore   Ignora .vercel/, .env, archivos del SO/editor y node_modules/
@@ -41,19 +41,21 @@ CLAUDE.md    Este archivo
 - **CSS:** clases en kebab-case (`project-row`, `tech-tags`, `skill-group`); los modificadores de estado van como clases (`status-live`, `status-dev`, `active`, `link-disabled`). Cortes responsivos en 900px, 700px y 520px.
 - **JS:** cada funcionalidad en una IIFE con nombre y encabezado numerado. Respetar `prefers-reduced-motion` en toda animación nueva.
 - **Proyectos:** los proyectos en línea van en `article.project-featured` con captura (`.project-shot`, WebP de 1200×500 con `width`/`height` y `alt`); si tienen sitio y repo, los dos enlaces van en `.project-links` (`.btn` "Ver proyecto" + `.link` "Ver repositorio"). Los demás van como `article.project-row` dentro de `ul.project-list`: `.project-head` (h3 + `.status`), descripción y `.project-meta` (`ul.tech-tags` + enlace `.link`). Estados: `status-live` "En línea" / `status-dev` "En desarrollo". Sin enlace: `<span class="link link-disabled">Enlace próximamente</span>`. Todo enlace externo lleva `target="_blank" rel="noopener"`.
+- **Goblin Tech:** sección `#goblin-tech` con `.freelance-head` (logo `.freelance-logo` + `.eyebrow` + nombre en Cinzel `.freelance-name`) y `.service-card` con `ul.service-list` (solo nombres de servicios, sin precios). El verde del logo es parte de la imagen de la marca; no se lleva a los tokens.
 - **Accesibilidad:** elementos decorativos con `aria-hidden="true"`; foco visible, enlace "Saltar al contenido", `<main id="contenido">`, cada sección con `aria-labelledby` y soporte de movimiento reducido. Bajo 520px el nombre de la marca se oculta visualmente pero sigue siendo el texto del enlace.
 - **Textos:** sin inventar logros ni cifras; lo que falte se marca con un comentario `<!-- ...: Por confirmar -->` en el HTML, no en el texto visible.
 
 ## Estado actual
 
 **Hecho**
-- Página única con cabecera fija y 6 secciones (hero, sobre mí, proyectos, habilidades, trayectoria, contacto), diseño editorial oscuro, responsive y con movimiento reducido.
+- Página única con cabecera fija y 7 secciones (hero, sobre mí, proyectos, habilidades, trayectoria, Goblin Tech, contacto), diseño editorial oscuro, responsive y con movimiento reducido.
 - Prioridades 1 y 2: inconsistencias corregidas (ubicación en Temuco, enlaces, etiquetas) y tarjetas de los 4 proyectos con estado "En línea" / "En desarrollo".
 - Prioridad 3: publicado en Vercel (2026-09-26).
 - PokeTracker v1 en línea y destacado con captura, sitio y repo (2026-09-26).
 - Prioridad 4: "Descargar CV" y "Contactar" en el hero; CV en `assets/`; textos reescritos con datos reales; datos clave (ubicación, disponibilidad, modalidad, inglés) en "Sobre mí".
 - Prioridad 6: favicon (SVG, ICO y apple-touch-icon), Open Graph con URL absoluta, `og:url`, `canonical` y `theme-color`.
 - Auditoría del 2026-09-26 resuelta: CTA en el hero, navegación en todos los anchos, contraste AA, textos de al menos 12.8px, sin canvas ni controles falsos, sin tarjeta huérfana, pie limpio.
+- Marca freelance Goblin Tech: sección con logo y servicios, botón "Ver precios y contacto en Facebook", entrada "Fundador" en Trayectoria (Sept 2026 a la fecha) y línea en el pie (2026-10-03).
 
 **En progreso**
 - Nada por ahora.
@@ -97,9 +99,15 @@ CLAUDE.md    Este archivo
 - **2026-09-26:** el CV vive en `assets/CV-Benjamin-Burgos-Navarrete.pdf` y se enlaza con `download` desde el hero y desde Contacto. Motivo: nombre estable y sin número de versión.
 - **2026-09-26:** los proyectos sin enlace muestran "Enlace próximamente" (`.link-disabled`) en lugar de quitar el enlace. Motivo: mantener todas las filas con la misma estructura.
 - **2026-09-26:** se elige el rediseño "editorial oscuro" (dirección B) sobre la identidad Console UI y se fusiona en `main`. Motivo: en pocos segundos se ve quién es, qué construyó y cómo contactarlo; conserva la rosa azul como marca personal.
+- **2026-10-03:** Goblin Tech va como sección propia entre Trayectoria y Contacto, sin enlace en la cabecera. Motivo: el dueño pidió no tocar header, hero ni proyectos; el portafolio sigue enfocado en reclutadores.
+- **2026-10-03:** en Trayectoria, Goblin Tech va primero ("Sept 2026 a la fecha") con el formato de las demás entradas (h4 "Fundador" + `.t-org` "Goblin Tech (freelance), Temuco"). Motivo: es un trabajo vigente.
+- **2026-10-03:** sin precios en el portafolio; se ven en Facebook. Motivo: lo pidió el dueño; los precios cambian y se actualizan en un solo lugar.
+- **2026-10-03:** en el sitio se usa solo la cabeza del goblin, no el logotipo completo. Motivo: el logotipo trae "GOBLIN TECH" escrito y repetiría el nombre que ya está en Cinzel.
 
 ## Registro de cambios
 
+- **2026-10-03:** Goblin Tech sin precios en las tarjetas (botón "Ver precios y contacto en Facebook"), logo `assets/goblin-tech.webp` (solo la cabeza del goblin, recortada del logotipo con fondo transparente) junto al nombre e inicio en Sept 2026.
+- **2026-10-03:** nueva sección Goblin Tech entre Trayectoria y Contacto (dos tarjetas de servicios con precios "desde", botón a Facebook), entrada "Fundador · Goblin Tech (freelance)" en Experiencia y enlace a la sección en el pie. Revisado en 375, 820 y 1366px sin scroll horizontal ni errores de consola.
 - **2026-09-26:** PokeTracker v1 pasa a "En línea" y a tarjeta destacada con captura (`assets/proyectos/poketracker.webp`), enlaces al sitio y al repo, tecnologías finales y descripción nueva; nueva clase `.project-links` y separación entre tarjetas destacadas.
 - **2026-09-26:** Claude no hace commit ni push (lo hace el dueño a mano); regla de commits sin atribución; rama local `respaldo-historial` creada antes de quitar las líneas `Co-Authored-By` del historial de `main`.
 - **2026-09-26:** nueva `og-image.png` a sangre completa (sin tarjeta): nombre, subtítulo en dos líneas a 48px y "Temuco, Chile", para que se lea en la vista previa de LinkedIn en celular.

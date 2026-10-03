@@ -385,6 +385,52 @@ p { text-wrap: pretty; }
 .timeline h4 { font-size: 1.02rem; font-weight: 600; line-height: 1.4; }
 .t-org { color: var(--stem); font-size: 0.92rem; margin-bottom: 0.4rem; }
 
+/* ---------- Goblin Tech ---------- */
+.freelance-head {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem 1.5rem;
+  margin-bottom: 0.8rem;
+}
+.freelance-logo { width: 120px; flex-shrink: 0; }
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+  margin-bottom: 0.3rem;
+}
+
+.section .freelance-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  letter-spacing: 0.02em;
+  margin-bottom: 0;
+}
+
+.freelance-lead { max-width: 60ch; margin-bottom: 2rem; }
+
+.service-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.service-card {
+  padding: 1.6rem 1.8rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.service-card h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.6rem; }
+
+.service-list li {
+  padding: 0.6rem 0;
+  border-top: 1px solid var(--line);
+  color: var(--text-strong);
+}
+
 /* ---------- Contacto ---------- */
 .contact-lead { color: var(--text); margin-bottom: 0.6rem; }
 
@@ -430,7 +476,13 @@ p { text-wrap: pretty; }
   border-top: 1px solid var(--line);
   font-size: 0.85rem;
   color: var(--text-muted);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
 }
+.site-footer a { color: var(--accent); text-underline-offset: 4px; }
+.site-footer a:hover { color: var(--accent-hover); }
 
 /* ---------- Accesibilidad ---------- */
 .skip-link {
@@ -473,6 +525,8 @@ button:focus-visible {
   .project-row .project-meta { grid-column: auto; }
   .project-row .project-head { flex-direction: row; align-items: baseline; gap: 0.2rem 0.9rem; }
   .project-featured-body { padding: 1.3rem; }
+  .service-cards { grid-template-columns: 1fr; }
+  .service-card { padding: 1.3rem; }
 }
 
 @media (max-width: 520px) {
@@ -491,4 +545,5 @@ button:focus-visible {
   .facts { grid-template-columns: 1fr; }
   .timeline li { grid-template-columns: 1fr; gap: 0.2rem; }
   .contact-links { flex-direction: column; gap: 0.6rem; }
+  .freelance-logo { width: 88px; }
 }
