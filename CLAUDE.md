@@ -25,7 +25,7 @@
 ```
 index.html   Todo el contenido: cabecera fija, hero, sobre mí, proyectos, habilidades, trayectoria (experiencia y educación), Goblin Tech (servicios freelance), contacto y pie
 style.css    Tema completo; tokens semánticos en :root, bloques separados por comentarios "/* ---------- X ---------- */"
-script.js    Una IIFE: navegación activa por sección (clase active + aria-current)
+script.js    Una IIFE: navegación activa por sección (clase active + aria-current); observa todas las secciones y, en las que no están en el menú, ningún enlace queda activo
 assets/      CV en PDF, favicon.svg, apple-touch-icon.png, og-image.png (1200×630), goblin-tech.webp (marca de Goblin Tech) y proyectos/ (capturas en WebP)
 favicon.ico  Favicon en la raíz (evita el 404 de /favicon.ico)
 CLAUDE.md    Este archivo
@@ -105,9 +105,12 @@ CLAUDE.md    Este archivo
 - **2026-10-03:** Goblin Tech va como sección propia entre Trayectoria y Contacto, sin enlace en la cabecera. Motivo: el dueño pidió no tocar header, hero ni proyectos; el portafolio sigue enfocado en reclutadores.
 - **2026-10-03:** en Trayectoria, Goblin Tech va primero ("Sept 2026 a la fecha") con el formato de las demás entradas (h4 "Fundador" + `.t-org` "Goblin Tech (freelance), Temuco"). Motivo: es un trabajo vigente.
 - **2026-10-03:** sin precios en el portafolio; se ven en Facebook. Motivo: lo pidió el dueño; los precios cambian y se actualizan en un solo lugar.
+- **2026-10-04:** en las secciones que no están en el menú no queda ningún enlace activo. Motivo: lo pidió el dueño; antes se quedaba marcado el último enlace visto (por ejemplo "Trayectoria" en Goblin Tech).
 - **2026-10-03:** en el sitio se usa solo la cabeza del goblin, no el logotipo completo. Motivo: el logotipo trae "GOBLIN TECH" escrito y repetiría el nombre que ya está en Cinzel.
 
 ## Registro de cambios
+
+- **2026-10-04:** el menú ya no deja "Trayectoria" marcado en Goblin Tech: `script.js` observa todas las secciones de `main` y limpia el enlace activo en las que no están en el menú (inicio, sobre mí, habilidades, Goblin Tech). Logo revisado: `assets/goblin-tech.webp` existe, está en el commit `1a5181b` y en Vercel; la imagen rota en Live Server no venía del archivo.
 
 - **2026-10-04:** PokeTracker con captura compuesta (escritorio y móvil, `assets/proyectos/poketracker.webp`), descripción nueva (copias físicas, progreso, exportar a Excel, caché, temas, accesibilidad AA), etiquetas Bootstrap 5 y TCGdex API, y texto alternativo nuevo. Revisado en 375, 820 y 1366px sin recortes, sin scroll horizontal ni errores de consola.
 - **2026-10-03:** Goblin Tech sin precios en las tarjetas (botón "Ver precios y contacto en Facebook"), logo `assets/goblin-tech.webp` (solo la cabeza del goblin, recortada del logotipo con fondo transparente) junto al nombre e inicio en Sept 2026.

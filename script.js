@@ -9,6 +9,9 @@
   if (!links.length || !('IntersectionObserver' in window)) return;
 
   const targets = Array.from(links).map(link => document.querySelector(link.getAttribute('href')));
+  // Se observan todas las secciones: al entrar en una que no está en el menú
+  // (por ejemplo Goblin Tech), idx queda en -1 y ningún enlace queda activo.
+  const sections = document.querySelectorAll('main section[id]');
 
   const observer = new IntersectionObserver(
     entries => {
@@ -28,5 +31,5 @@
     { rootMargin: '-40% 0px -50% 0px', threshold: 0 }
   );
 
-  targets.forEach(t => t && observer.observe(t));
+  sections.forEach(s => observer.observe(s));
 })();
