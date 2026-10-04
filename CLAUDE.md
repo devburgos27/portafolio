@@ -40,7 +40,7 @@ CLAUDE.md    Este archivo
 - **Forma:** controles y bloques con `--radius` (10px), etiquetas con `--radius-sm` (6px). Controles de al menos 44px de alto; bordes de controles con `--line-strong` (3.47:1).
 - **CSS:** clases en kebab-case (`project-row`, `tech-tags`, `skill-group`); los modificadores de estado van como clases (`status-live`, `status-dev`, `active`, `link-disabled`). Cortes responsivos en 900px, 700px y 520px.
 - **JS:** cada funcionalidad en una IIFE con nombre y encabezado numerado. Respetar `prefers-reduced-motion` en toda animación nueva.
-- **Proyectos:** los proyectos en línea van en `article.project-featured` con captura (`.project-shot`, WebP de 1200×500 con `width`/`height` y `alt`); si tienen sitio y repo, los dos enlaces van en `.project-links` (`.btn` "Ver proyecto" + `.link` "Ver repositorio"). Los demás van como `article.project-row` dentro de `ul.project-list`: `.project-head` (h3 + `.status`), descripción y `.project-meta` (`ul.tech-tags` + enlace `.link`). Estados: `status-live` "En línea" / `status-dev` "En desarrollo". Sin enlace: `<span class="link link-disabled">Enlace próximamente</span>`. Todo enlace externo lleva `target="_blank" rel="noopener"`.
+- **Proyectos:** los proyectos en línea van en `article.project-featured` con captura (`.project-shot`, WebP de 1200×500 con `width`/`height` y `alt`; si hay vista de escritorio y de móvil, van lado a lado sobre fondo `--surface-raised`); si tienen sitio y repo, los dos enlaces van en `.project-links` (`.btn` "Ver proyecto" + `.link` "Ver repositorio"). Los demás van como `article.project-row` dentro de `ul.project-list`: `.project-head` (h3 + `.status`), descripción y `.project-meta` (`ul.tech-tags` + enlace `.link`). Estados: `status-live` "En línea" / `status-dev` "En desarrollo". Sin enlace: `<span class="link link-disabled">Enlace próximamente</span>`. Todo enlace externo lleva `target="_blank" rel="noopener"`.
 - **Goblin Tech:** sección `#goblin-tech` con `.freelance-head` (logo `.freelance-logo` + `.eyebrow` + nombre en Cinzel `.freelance-name`) y `.service-card` con `ul.service-list` (solo nombres de servicios, sin precios). El verde del logo es parte de la imagen de la marca; no se lleva a los tokens.
 - **Accesibilidad:** elementos decorativos con `aria-hidden="true"`; foco visible, enlace "Saltar al contenido", `<main id="contenido">`, cada sección con `aria-labelledby` y soporte de movimiento reducido. Bajo 520px el nombre de la marca se oculta visualmente pero sigue siendo el texto del enlace.
 - **Textos:** sin inventar logros ni cifras; lo que falte se marca con un comentario `<!-- ...: Por confirmar -->` en el HTML, no en el texto visible.
@@ -55,6 +55,7 @@ CLAUDE.md    Este archivo
 - Prioridad 4: "Descargar CV" y "Contactar" en el hero; CV en `assets/`; textos reescritos con datos reales; datos clave (ubicación, disponibilidad, modalidad, inglés) en "Sobre mí".
 - Prioridad 6: favicon (SVG, ICO y apple-touch-icon), Open Graph con URL absoluta, `og:url`, `canonical` y `theme-color`.
 - Auditoría del 2026-09-26 resuelta: CTA en el hero, navegación en todos los anchos, contraste AA, textos de al menos 12.8px, sin canvas ni controles falsos, sin tarjeta huérfana, pie limpio.
+- PokeTracker actualizado: captura compuesta escritorio + móvil, descripción y tecnologías nuevas (2026-10-04).
 - Marca freelance Goblin Tech: sección con logo y servicios, botón "Ver precios y contacto en Facebook", entrada "Fundador" en Trayectoria (Sept 2026 a la fecha) y línea en el pie (2026-10-03).
 
 **En progreso**
@@ -93,7 +94,9 @@ CLAUDE.md    Este archivo
 - **2026-09-26:** las etiquetas de Arte Xebi quedan en HTML5, CSS3 y JavaScript. Motivo: el sitio publicado es estático y no usa WordPress.
 - **2026-09-26:** el estado de cada proyecto se muestra solo en `.status` ("En línea" / "En desarrollo"), no en el título. Motivo: evitar mostrar la misma etiqueta dos veces.
 - **2026-09-26:** PokeTracker v1 va destacado, antes de Arte Xebi. Motivo: está en línea y es el proyecto que muestra más stack (login con Google, PostgreSQL con RLS en Supabase, API GraphQL), que es lo que un reclutador busca en un primer puesto de desarrollador; las filas quedan para lo que está en desarrollo.
-- **2026-09-26:** las etiquetas de PokeTracker v1 son HTML5, CSS3, JavaScript, Supabase, PostgreSQL, GraphQL, Google OAuth y Vercel (reemplaza la lista anterior con Pokémon TCG API). Motivo: stack final que confirmó el dueño.
+- **2026-09-26:** ~~las etiquetas de PokeTracker v1 son HTML5, CSS3, JavaScript, Supabase, PostgreSQL, GraphQL, Google OAuth y Vercel~~ (reemplazada el 2026-10-04).
+- **2026-10-04:** las etiquetas de PokeTracker son HTML5, CSS3, JavaScript, Bootstrap 5, Supabase, PostgreSQL, GraphQL, Google OAuth, TCGdex API y Vercel. Motivo: stack actual que confirmó el dueño; GraphQL se mantiene porque `js/api.js` del repo consulta la API GraphQL de TCGdex.
+- **2026-10-04:** la captura de PokeTracker muestra escritorio y móvil lado a lado. Motivo: deja ver que la app es responsive; como la imagen ya tiene la proporción 12:5 de `.project-shot`, no se recorta en ningún ancho y no hizo falta tocar `object-position`.
 - **2026-09-26:** deploy en Vercel sin `vercel.json` ni build. Motivo: es un sitio estático y Vercel lo sirve tal cual.
 - **2026-09-26:** quitar los controles `◀◀ ▶ ▮▮` de las tarjetas. Motivo: parecían botones y no hacían nada.
 - **2026-09-26:** el CV vive en `assets/CV-Benjamin-Burgos-Navarrete.pdf` y se enlaza con `download` desde el hero y desde Contacto. Motivo: nombre estable y sin número de versión.
@@ -106,6 +109,7 @@ CLAUDE.md    Este archivo
 
 ## Registro de cambios
 
+- **2026-10-04:** PokeTracker con captura compuesta (escritorio y móvil, `assets/proyectos/poketracker.webp`), descripción nueva (copias físicas, progreso, exportar a Excel, caché, temas, accesibilidad AA), etiquetas Bootstrap 5 y TCGdex API, y texto alternativo nuevo. Revisado en 375, 820 y 1366px sin recortes, sin scroll horizontal ni errores de consola.
 - **2026-10-03:** Goblin Tech sin precios en las tarjetas (botón "Ver precios y contacto en Facebook"), logo `assets/goblin-tech.webp` (solo la cabeza del goblin, recortada del logotipo con fondo transparente) junto al nombre e inicio en Sept 2026.
 - **2026-10-03:** nueva sección Goblin Tech entre Trayectoria y Contacto (dos tarjetas de servicios con precios "desde", botón a Facebook), entrada "Fundador · Goblin Tech (freelance)" en Experiencia y enlace a la sección en el pie. Revisado en 375, 820 y 1366px sin scroll horizontal ni errores de consola.
 - **2026-09-26:** PokeTracker v1 pasa a "En línea" y a tarjeta destacada con captura (`assets/proyectos/poketracker.webp`), enlaces al sitio y al repo, tecnologías finales y descripción nueva; nueva clase `.project-links` y separación entre tarjetas destacadas.
